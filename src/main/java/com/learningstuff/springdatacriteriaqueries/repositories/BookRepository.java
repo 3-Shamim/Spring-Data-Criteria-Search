@@ -1,6 +1,6 @@
 package com.learningstuff.springdatacriteriaqueries.repositories;
 
-import com.learningstuff.springdatacriteriaqueries.dao.BookCustomRepository;
+import com.learningstuff.springdatacriteriaqueries.dao.BookCriteriaRepository;
 import com.learningstuff.springdatacriteriaqueries.models.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -15,5 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface BookRepository extends JpaRepository<Book, Long>, BookCustomRepository, JpaSpecificationExecutor<Book> {
+public interface BookRepository extends JpaRepository<Book, Long>, BookCriteriaRepository, JpaSpecificationExecutor<Book> {
 }

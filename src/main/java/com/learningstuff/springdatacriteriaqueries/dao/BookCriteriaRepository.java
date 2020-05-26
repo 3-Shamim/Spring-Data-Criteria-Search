@@ -14,10 +14,10 @@ import java.util.List;
  * Email: mdshamim723@gmail.com
  */
 
-public interface BookCustomRepository {
+public interface BookCriteriaRepository {
 
-    List<Book> findBooksByAuthorAndTitle(String author, String title);
+    public List<Book> findBooksByAuthorAndTitle(String author, String title);
 
-    Page<Book> findBooksByAuthorAndTitle(String author, String title, Pageable pageable);
+    public Page<Book> findBooksByAuthorAndTitle(String author, String title, Pageable pageable);
 
 }

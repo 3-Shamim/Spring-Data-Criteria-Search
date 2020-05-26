@@ -1,13 +1,10 @@
 package com.learningstuff.springdatacriteriaqueries.services;
 
-import com.learningstuff.springdatacriteriaqueries.dao.BookCustomRepository;
 import com.learningstuff.springdatacriteriaqueries.models.Book;
 import com.learningstuff.springdatacriteriaqueries.repositories.BookRepository;
-import com.learningstuff.springdatacriteriaqueries.specifications.BookSpecifications;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

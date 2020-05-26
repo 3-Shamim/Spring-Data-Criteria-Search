@@ -26,7 +26,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Repository
-public class BookCustomRepositoryImpl implements BookCustomRepository {
+public class BookCriteriaRepositoryImpl implements BookCriteriaRepository {
 
     private final EntityManager em;
 
