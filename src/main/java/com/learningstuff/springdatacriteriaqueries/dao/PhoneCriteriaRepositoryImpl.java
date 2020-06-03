@@ -96,6 +96,50 @@ public class PhoneCriteriaRepositoryImpl implements PhoneCriteriaRepository {
     }
 
     @Override
+    public List<PhoneDTO> findAllPhoneDTOListProjection() {
+
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Tuple> criteriaQuery = builder.createQuery(Tuple.class);
+        Root<Phone> root = criteriaQuery.from(Phone.class);
+        Join<Phone, Person> person = root.join("person");
+
+        Path<Object> id = root.get("id");
+        Path<Object> number = root.get("number");
+        Path<Object> type = root.get("type");
+
+        Path<Object> personId = person.get("id");
+        Path<Object> name = person.get("name");
+        Path<Object> nickName = person.get("nickName");
+        Path<Object> address = person.get("address");
+        Path<Object> createdAt = person.get("createdAt");
+        Path<Object> version = person.get("version");
+
+//        CompoundSelection<PersonMediumDTO> personDTO = builder.construct(PersonMediumDTO.class, personId, name, nickName, address, createdAt, version);
+
+//        criteriaQuery.select(builder.construct(PhoneDTO.class, id, number, type, builder.construct(PersonMediumDTO.class, personId, name, nickName, address, createdAt, version)));
+
+
+        criteriaQuery.multiselect(id, number, type, personId, name, nickName, address, createdAt, version);
+
+
+//        criteriaQuery.multiselect(personDTO.alias("person"));
+
+
+        TypedQuery<Tuple> query = em.createQuery(criteriaQuery);
+
+        List<Tuple> resultList = query.getResultList();
+
+        resultList.forEach(tuple -> {
+            System.out.println(tuple.get(id));
+            System.out.println(tuple.get(number));
+            System.out.println(tuple.get(type));
+//            System.out.println(tuple.get("person"));
+        });
+
+        return null;
+    }
+
+    @Override
     public List<PhoneWithPersonNameDTO> findAllPhoneWithPersonNameDTOList() {
 
         CriteriaBuilder builder = em.getCriteriaBuilder();

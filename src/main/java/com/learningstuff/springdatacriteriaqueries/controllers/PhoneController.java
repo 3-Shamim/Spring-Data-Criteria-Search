@@ -33,6 +33,16 @@ public class PhoneController {
         return ResponseEntity.status(HttpStatus.OK).body(phoneRepository.findAllPhoneDTOList());
     }
 
+    @GetMapping(value = "/dto-projection")
+    public ResponseEntity<?> getAllPhoneDTOListProjection() {
+        return ResponseEntity.status(HttpStatus.OK).body(phoneRepository.findAllPhoneDTOListProjection());
+    }
+
+    @GetMapping(value = "/details-dto")
+    public ResponseEntity<?> getAllPhoneDetailsDTOList() {
+        return ResponseEntity.status(HttpStatus.OK).body(phoneRepository.findAllPhoneDetailsDTO());
+    }
+
     @GetMapping(value = "/dto-person-name")
     public ResponseEntity<?> getAllPhoneWithPersonNameDTOList() {
         return ResponseEntity.status(HttpStatus.OK).body(phoneRepository.findAllPhoneWithPersonNameDTOList());

@@ -20,6 +20,8 @@ public interface PhoneCriteriaRepository {
 
     public List<PhoneDTO> findAllPhoneDTOList();
 
+    public List<PhoneDTO> findAllPhoneDTOListProjection();
+
     public List<PhoneWithPersonNameDTO> findAllPhoneWithPersonNameDTOList();
 
 
